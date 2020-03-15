@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Hind:600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"/>
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Hind:600&display=swap"/>
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <title>Weather Dashboard</title>
   </head>
 
@@ -32,11 +30,62 @@
     </div>
   </aside>
   <main>
-        <div class="col displayCity"></div>
-        <div class="col displayTemp"></div>
-        <div class="col displayHumidity"></div>
-        <div class="col displayWindSpeed"></div>
-        <div class="col displayUVIndex"></div>
+    <section class="top">
+        <div class="row">
+          <div class="col displayCity"></div>
+        </div>
+        <div class="row">
+          <div class="col col-2 displayTemp"></div>
+          <div id="col icon1"><img id="wicon" src="" alt="Weather icon"></div>
+        </div>
+        <div class="row">
+          <div class="col displayHumidity"></div>
+        </div>
+        <div class="row">
+          <div class="col displayWindSpeed"></div>
+        </div>
+        <div class="row">
+          <div class="col displayUVIndex"></div>
+        </div>
+    </section>
+    <section class="bottom">
+        <br>
+        <div class="col fTitle"></div>
+        <br>
+        <br>
+        <div class="row blockDay">
+          <div class="col">
+            <p class="displayDate1"></p>
+            <p><img id="wicon1" src="" alt="Weather icon" class="center"></p>
+            <p class="displayTemp1"></p>
+            <p class="col displayHumidity1"></p>
+          </div>
+          <div class="col">
+            <p class="displayDate2"></p>
+            <p><img id="wicon2" src="" alt="Weather icon" class="center"></p>
+            <p class="displayTemp2"></p>
+            <p class="col displayHumidity2"></p>
+          </div>
+          <div class="col">
+            <p class="displayDate3"></p>
+            <p><img id="wicon3" src="" alt="Weather icon" class="center"></p>
+            <p class="displayTemp3"></p>
+            <p class="col displayHumidity3"></p>
+          </div>
+          <div class="col">
+            <p class="displayDate4"></p>
+            <p><img id="wicon4" src="" alt="Weather icon" class="center"></p>
+            <p class="displayTemp4"></p>
+            <p class="col displayHumidity4"></p>
+          </div>
+          <div class="col">
+            <p class="displayDate5"></p>
+            <p><img id="wicon5" src="" alt="Weather icon" class="center"></p>
+            <p class="displayTemp5"></p>
+            <p class="col displayHumidity5"></p>
+          </div>
+        </div>
+    </section>
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

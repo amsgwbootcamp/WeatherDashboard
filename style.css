@@ -25,7 +25,7 @@ main {
 
 .displayCity {
     font-family: 'Hind', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .displayTitle {
@@ -33,3 +33,28 @@ main {
     font-size: 20px;
     font-weight: bold;
 }
+
+img {
+    display: inline-block;
+    float: none;
+    height: 32px;
+    width: 32px;
+}
+
+.fTitle {
+    visibility: hidden;
+    text-align: left;
+    display: inline-block;
+    font-family: 'Hind', sans-serif;
+    font-size: 15px;
+    margin-left: 0px;
+}
+
+p {
+    font-size: 12px;
+}
+
+.center {
+    display: inline-block;
+    margin-left: 35px;
+}   
