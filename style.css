@@ -1,0 +1,29 @@
+header {
+    background-color: rgb(64,64,64);
+    color: white;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    text-align: center;
+}
+
+.jumbotron {
+    
+    color: white;
+}
+  
+aside {
+    float: left;
+    clear: both;
+    height: 100%;
+    width: 30%;
+}
+
+main {
+    display: inline-block;
+    width: 70%;
+}
+
+.displayCity {
+    font-family: 'Hind', sans-serif;
+    font-size: 20px;
+}
