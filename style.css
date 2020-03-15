@@ -27,3 +27,9 @@ main {
     font-family: 'Hind', sans-serif;
     font-size: 20px;
 }
+
+.displayTitle {
+    font-family: 'Hind', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
