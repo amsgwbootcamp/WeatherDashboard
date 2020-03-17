@@ -58,3 +58,7 @@ p {
     display: inline-block;
     margin-left: 35px;
 }   
+
+.displayIndex {
+    text-align: left;
+}
