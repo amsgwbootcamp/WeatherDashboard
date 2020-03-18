@@ -3,6 +3,7 @@
 var searchLat;
 var searchLon;
 var currentDate;
+var counter = 1;
 
 function getInfo(searchCity)
 {
@@ -41,7 +42,7 @@ function getInfo(searchCity)
     //    getFiveDay(searchCity);
     }); 
 }
-http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}
+
 function getUVIndex(cityLon, cityLat)
 {
     var APIKey = "9c487a7f9aa142c820a7b4aa2d194f2f";
@@ -58,11 +59,29 @@ function getUVIndex(cityLon, cityLat)
     .then(function(response) {
         $(".displayUVIndex").text("UV Index: " + response.value);
         $(".displayUVIndex").show();
-        
-        
-    })
-    .fail(function(response) {
-        console.log(response);
+        var uvIndex = response.value;
+
+        switch(parseInt(uvIndex))
+        {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+                $(".displayUVIndex").css("background-color","green");
+                break;
+            case 4:
+            case 5:
+            case 6:
+                 $(".displayUVIndex").css("background-color","yellow");
+                 break;
+            case 7:
+            case 8:
+                $(".displayUVIndex").css("background-color","orange");
+                break;
+            default:
+                $(".displayUVIndex").css("background-color","red");
+                break;
+        }
     }); 
 }
 
@@ -165,13 +184,32 @@ function getFiveDay(searchCity)
 
 $(".searchButton").on("click", function() {
 
-    var str = $("#search").val();  
-    $(".container").append("<div>"+ str + "</div>");
-
+    var str = $("#search").val();
     getInfo(str);
     getFiveDay(str);
-    $("#search").val("");
+    test(str);
+    $("#search").val("");  
 });
+
+function newButtonClickListener(event) {
+    alert(this.event.target.id);
+    var a = this.event.target.value;
+    alert("You have pushed the following: " + a);
+    getInfo(a);
+    getFiveDay(a);
+
+}
+function test(str) {
+var r = $('<input/>').attr({
+             type: "button",
+             id: "btn"+counter,
+             value: str,
+             onclick: "newButtonClickListener()"
+        });
+        counter = counter + 1;
+        $(".container").append(r);
+        $(".container").append("<br>");
+}
 
 $(document).ready(function(){
     
@@ -193,5 +231,4 @@ $(document).ready(function(){
         $("#wicon4").css("visibility","hidden");
         $("#wicon5").css("visibility","hidden");
     }
-      
-  });
+});
