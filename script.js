@@ -40,15 +40,21 @@ function getFiveDay(searchCity)
     var APIKey = "9c487a7f9aa142c820a7b4aa2d194f2f";
     // Here we are building the URL we need to query the database
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" 
-            + searchCity + "&appid=" + APIKey;
-    
+            + searchCity + "&units=imperial&appid=" + APIKey;
+    var queryURL2 = "https://api.openweathermap.org/data/2.5/forecast/daily?q="
+                     + searchCity + "&cnt=5&appid=" + APIKey;
     $.ajax({
         url: queryURL,
         method: "GET"
     })
     // We store all of the retrieved data inside of an object called "response"
-    .then(function(response) {
-  
+    .then(function(response) 
+    {
+        var tempF1 = 0;
+        var tempF2 = 0;
+        var tempF3 = 0;
+        var tempF4 = 0;
+        var tempF5 = 0;
         // Transfer content to HTML
         // Entry 1
         $(".fTitle").text("5 Day Forecast:");
@@ -59,7 +65,7 @@ function getFiveDay(searchCity)
         var dYear1 = mDate1.substring(0,4);
         var dDate1 = dMonth1 + "/" + dDay1 + "/" + dYear1;
         $(".displayDate1").text(dDate1);
-        var tempF1 = (response.list[4].main.temp - 273.15) * 1.80 + 32;
+        tempF1 = response.list[4].main.temp;
         var degreeSymbol = "\xB0";
         $(".displayTemp1").text("Temperature: " + tempF1.toFixed(2)  + " " + degreeSymbol + "F");
         var iconcode = response.list[4].weather[0].icon;
@@ -74,7 +80,7 @@ function getFiveDay(searchCity)
         var dYear2 = mDate2.substring(0,4);
         var dDate2 = dMonth2 + "/" + dDay2 + "/" + dYear2;
         $(".displayDate2").text(dDate2);
-        var tempF2 = (response.list[12].main.temp - 273.15) * 1.80 + 32;
+        tempF2 = response.list[12].main.temp;
         var degreeSymbol = "\xB0";
         $(".displayTemp2").text("Temperature: " + tempF2.toFixed(2)  + " " + degreeSymbol + "F");
         var iconcode = response.list[12].weather[0].icon;
@@ -89,7 +95,7 @@ function getFiveDay(searchCity)
         var dYear3 = mDate3.substring(0,4);
         var dDate3 = dMonth3 + "/" + dDay3 + "/" + dYear3;
         $(".displayDate3").text(dDate3);
-        var tempF3 = (response.list[20].main.temp - 273.15) * 1.80 + 32;
+        tempF3 = response.list[20].main.temp;
         var degreeSymbol = "\xB0";
         $(".displayTemp3").text("Temperature: " + tempF3.toFixed(2)  + " " + degreeSymbol + "F");
         var iconcode = response.list[20].weather[0].icon;
@@ -104,7 +110,7 @@ function getFiveDay(searchCity)
         var dYear4 = mDate4.substring(0,4);
         var dDate4 = dMonth4 + "/" + dDay4 + "/" + dYear4;
         $(".displayDate4").text(dDate4);
-        var tempF4 = (response.list[28].main.temp - 273.15) * 1.80 + 32;
+        tempF4 = response.list[28].main.temp;
         var degreeSymbol = "\xB0";
         $(".displayTemp4").text("Temperature: " + tempF4.toFixed(2)  + " " + degreeSymbol + "F");
         var iconcode = response.list[28].weather[0].icon;
@@ -119,7 +125,7 @@ function getFiveDay(searchCity)
         var dYear5 = mDate5.substring(0,4);
         var dDate5 = dMonth5 + "/" + dDay5 + "/" + dYear5;
         $(".displayDate5").text(dDate5);
-        var tempF5 = (response.list[36].main.temp - 273.15) * 1.80 + 32;
+        tempF5 = response.list[36].main.temp;
         var degreeSymbol = "\xB0";
         $(".displayTemp5").text("Temperature: " + tempF5.toFixed(2)  + " " + degreeSymbol + "F");
         var iconcode = response.list[36].weather[0].icon;
@@ -127,7 +133,6 @@ function getFiveDay(searchCity)
         $("#wicon5").attr("src",iconurl);
         $("#wicon5").css("visibility","visible");
         $(".displayHumidity5").text("Humidity: " + response.list[36].main.humidity + "%");
-        
     }); 
 } 
 //
